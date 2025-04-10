@@ -1,0 +1,588 @@
+{
+  "last_node_id": 11,
+  "last_link_id": 9,
+  "nodes": [
+    {
+      "id": 4,
+      "type": "UltralyticsDetectorProvider",
+      "pos": [
+        1490,
+        -920
+      ],
+      "size": [
+        340.20001220703125,
+        78
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": [
+            1
+          ]
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UltralyticsDetectorProvider",
+        "cnr_id": "comfyui-impact-subpack",
+        "ver": "1.2.9"
+      },
+      "widgets_values": [
+        "bbox/face_yolov8m.pt"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 6,
+      "type": "ImpactSEGSClassify",
+      "pos": [
+        1860,
+        -1090
+      ],
+      "size": [
+        367.79998779296875,
+        122
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "classifier",
+          "type": "TRANSFORMERS_CLASSIFIER",
+          "link": 2
+        },
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 3
+        },
+        {
+          "name": "ref_image_opt",
+          "type": "IMAGE",
+          "shape": 7,
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "filtered_SEGS",
+          "type": "SEGS",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "remained_SEGS",
+          "type": "SEGS",
+          "links": null
+        },
+        {
+          "name": "detected_labels",
+          "type": "STRING",
+          "shape": 6,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactSEGSClassify",
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "798776838e1cfd006717d2ddd18755faa0cf074e"
+      },
+      "widgets_values": [
+        "#Female > #Male",
+        ""
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 7,
+      "type": "ImpactIsNotEmptySEGS",
+      "pos": [
+        2250,
+        -1090
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            8
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactIsNotEmptySEGS",
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "798776838e1cfd006717d2ddd18755faa0cf074e"
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 8,
+      "type": "easy string",
+      "pos": [
+        1890,
+        -900
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy string",
+        "cnr_id": "comfyui-easy-use",
+        "ver": "0daf114fe8870aeacfea484aa59e7f9973b91cd5"
+      },
+      "widgets_values": [
+        "1girl"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 10,
+      "type": "easy string",
+      "pos": [
+        1890,
+        -760
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            7
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy string",
+        "cnr_id": "comfyui-easy-use",
+        "ver": "0daf114fe8870aeacfea484aa59e7f9973b91cd5"
+      },
+      "widgets_values": [
+        "1boy"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 5,
+      "type": "ImpactHFTransformersClassifierProvider",
+      "pos": [
+        1480,
+        -1090
+      ],
+      "size": [
+        338.5478820800781,
+        106
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "TRANSFORMERS_CLASSIFIER",
+          "type": "TRANSFORMERS_CLASSIFIER",
+          "links": [
+            2
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactHFTransformersClassifierProvider",
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "798776838e1cfd006717d2ddd18755faa0cf074e"
+      },
+      "widgets_values": [
+        "rizvandwiki/gender-classification-2",
+        "",
+        "AUTO"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 3,
+      "type": "ImpactSimpleDetectorSEGS",
+      "pos": [
+        1500,
+        -780
+      ],
+      "size": [
+        315,
+        310
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "bbox_detector",
+          "type": "BBOX_DETECTOR",
+          "link": 1
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 9
+        },
+        {
+          "name": "sam_model_opt",
+          "type": "SAM_MODEL",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "segm_detector_opt",
+          "type": "SEGM_DETECTOR",
+          "shape": 7,
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEGS",
+          "type": "SEGS",
+          "links": [
+            3
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactSimpleDetectorSEGS",
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "798776838e1cfd006717d2ddd18755faa0cf074e"
+      },
+      "widgets_values": [
+        0.5,
+        0,
+        3,
+        10,
+        0.5,
+        0,
+        0,
+        0.7,
+        0
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 9,
+      "type": "ShowText|pysssss",
+      "pos": [
+        998.8796997070312,
+        -1094.1510009765625
+      ],
+      "size": [
+        305.4971008300781,
+        114.11181640625
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 6,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss",
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "bbda5e52ad580c13ceaa53136d9c2bed9137bd2e"
+      },
+      "widgets_values": [
+        "",
+        "1girl"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 11,
+      "type": "Text Input Switch",
+      "pos": [
+        2250,
+        -960
+      ],
+      "size": [
+        223.89100646972656,
+        146
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "widget": {
+            "name": "text_a"
+          },
+          "link": 6
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "widget": {
+            "name": "text_b"
+          },
+          "link": 7
+        },
+        {
+          "name": "boolean",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "boolean"
+          },
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            5
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Input Switch",
+        "cnr_id": "was-node-suite-comfyui",
+        "ver": "3ed45af34a14551dc28cb3127235cc7197d4633f"
+      },
+      "widgets_values": [
+        "",
+        "",
+        false
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "pos": [
+        1009.22314453125,
+        -937.346435546875
+      ],
+      "size": [
+        299.2926940917969,
+        314.87255859375
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "CatgirlHD_00001_ (1).png",
+        "image"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1,
+      "type": "Note _O",
+      "pos": [
+        739.0626831054688,
+        -1098.3194580078125
+      ],
+      "size": [
+        221.61468505859375,
+        470.1149597167969
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note _O"
+      },
+      "widgets_values": [
+        "Workflow: Gender_Classifier\n人物性別識別模組"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    }
+  ],
+  "links": [
+    [
+      1,
+      4,
+      0,
+      3,
+      0,
+      "BBOX_DETECTOR"
+    ],
+    [
+      2,
+      5,
+      0,
+      6,
+      0,
+      "TRANSFORMERS_CLASSIFIER"
+    ],
+    [
+      3,
+      3,
+      0,
+      6,
+      1,
+      "SEGS"
+    ],
+    [
+      4,
+      6,
+      0,
+      7,
+      0,
+      "SEGS"
+    ],
+    [
+      5,
+      11,
+      0,
+      9,
+      0,
+      "STRING"
+    ],
+    [
+      6,
+      8,
+      0,
+      11,
+      0,
+      "STRING"
+    ],
+    [
+      7,
+      10,
+      0,
+      11,
+      1,
+      "STRING"
+    ],
+    [
+      8,
+      7,
+      0,
+      11,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      9,
+      2,
+      0,
+      3,
+      1,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.876922695000001,
+      "offset": [
+        -607.3253641236452,
+        1300.0206073536347
+      ]
+    },
+    "ue_links": []
+  },
+  "version": 0.4
+}

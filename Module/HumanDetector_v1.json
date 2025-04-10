@@ -1,0 +1,241 @@
+{
+  "last_node_id": 22,
+  "last_link_id": 20,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "pos": [
+        1001.0641479492188,
+        -1200.1654052734375
+      ],
+      "size": [
+        299.2926940917969,
+        314.87255859375
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "download.jpg",
+        "image"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 14,
+      "type": "easy showAnything",
+      "pos": [
+        1002.368408203125,
+        -1338.622802734375
+      ],
+      "size": [
+        317.6998596191406,
+        76
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "shape": 7,
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "true"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 13,
+      "type": "WD14Tagger|pysssss",
+      "pos": [
+        1406.0380859375,
+        -1340.9432373046875
+      ],
+      "size": [
+        309.7205810546875,
+        328.9490661621094
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 6,
+          "links": [
+            12
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WD14Tagger|pysssss"
+      },
+      "widgets_values": [
+        "wd-v1-4-vit-tagger-v2",
+        0.3500000000000001,
+        0.3500000000000001,
+        false,
+        false,
+        "",
+        "outdoors, day, tree, no_humans, cherry_blossoms, building, scenery, fence, road, architecture, east_asian_architecture, real_world_location"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 12,
+      "type": "Text Contains",
+      "pos": [
+        1411.6744384765625,
+        -954.433837890625
+      ],
+      "size": [
+        302.783203125,
+        106
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            11
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Contains"
+      },
+      "widgets_values": [
+        "",
+        "no_humans",
+        false
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1,
+      "type": "Note _O",
+      "pos": [
+        730.9324340820312,
+        -1327.1290283203125
+      ],
+      "size": [
+        233.81932067871094,
+        432.33984375
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note _O"
+      },
+      "widgets_values": [
+        "Workflow: HumanDetector_v1\n人物識別模組\n\n- 用提詞no_humans偵測圖片是否有人物\n- 用於控制接下來要不要走人物處理流程\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    }
+  ],
+  "links": [
+    [
+      10,
+      2,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      12,
+      0,
+      14,
+      0,
+      "*"
+    ],
+    [
+      12,
+      13,
+      0,
+      12,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7972024500000017,
+      "offset": [
+        -116.35411116622905,
+        1655.8238529232099
+      ]
+    },
+    "ue_links": []
+  },
+  "version": 0.4
+}
