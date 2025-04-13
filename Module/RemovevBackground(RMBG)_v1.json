@@ -1,0 +1,170 @@
+{
+  "last_node_id": 5,
+  "last_link_id": 8,
+  "nodes": [
+    {
+      "id": 5,
+      "type": "RMBG",
+      "pos": [
+        893.9366455078125,
+        -577.3917236328125
+      ],
+      "size": [
+        315,
+        290
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            8
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "MASK_IMAGE",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rmbg",
+        "ver": "2.2.1",
+        "Node name for S&R": "RMBG"
+      },
+      "widgets_values": [
+        "RMBG-2.0",
+        1,
+        1024,
+        0,
+        0,
+        "Alpha",
+        false,
+        "on",
+        true
+      ]
+    },
+    {
+      "id": 3,
+      "type": "SaveImage",
+      "pos": [
+        1252.8486328125,
+        -579.3284301757812
+      ],
+      "size": [
+        442.86541748046875,
+        471.2094421386719
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 8
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        532.1263427734375,
+        -588.5697631835938
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            7
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "image 76.png",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      7,
+      1,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      8,
+      5,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.1671841070450018,
+      "offset": [
+        -594.3777488846249,
+        681.7020811365901
+      ]
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
